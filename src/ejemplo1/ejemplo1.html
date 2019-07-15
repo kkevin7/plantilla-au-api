@@ -1,0 +1,15 @@
+<template>
+  <div class="contenido div-center">
+  <h1 class="text-center">${message}</h1>
+  <ul>
+    <li repeat.for="tarea of tareaList">
+      <input type="checkbox" checked.bind="tarea.done">
+      <span css="text-decoration: ${tarea.done ? 'line-through' : 'none'}">${tarea.description} = ${tarea.done}</span>
+      <!-- <span css="display: ${tarea.done ? 'none' : 'inline-block'}">${tarea.description} = ${tarea.done}</span> -->
+      <button click.delegate="removeItem(tarea)" class="btn btn-danger btn-sm">Eliminar</button>
+    </li>
+    <input type="text" value.bind="newItem" />
+    <button click.delegate="agregarLista()" class="btn btn-info">Agregar</button>
+  </ul>
+</div>
+</template>
